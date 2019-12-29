@@ -1,0 +1,47 @@
+#Pipeline script for Hello
+
+pipeline {
+    agent { label 'master' }
+    stages {
+        stage('build') {
+            steps {
+                echo "Hello World!"
+                sh "echo Hello from the shell"
+                sh "hostname"
+                sh "uptime"
+            }
+        }
+    }
+}
+
+
+#Pipeline script of Build to deploy tomcat
+
+node {
+   stage('Checkout the code' ){
+       git branch: 'development', credentialsId: '32e38e63-d7e3-4a7b-858c-592a9f48c7a0', url: 'https://github.com/mohansoftwares/maven-web-application.git'
+   }
+   stage('Build'){
+       def mvnHome = tool name: 'MAVEN_HOME', type: 'maven'
+       sh "${mvnHome}/bin/mvn package"
+   }
+   stage('SonarQube'){
+       def mvnHome = tool name: 'MAVEN_HOME', type: 'maven'
+       sh "${mvnHome}/bin/mvn sonar:sonar"
+   }
+   stage('Nexus'){
+       def mvnHome = tool name: 'MAVEN_HOME', type: 'maven'
+       sh "${mvnHome}/bin/mvn deploy"
+   }
+   stage('Tomcat'){
+       def mvnHome = tool name: 'MAVEN_HOME', type: 'maven'
+       sh 'cp $WORKSPACE/target/*.war /root/opt/apache-tomcat-9.0.14/webapps'
+       
+   }
+   stage('Email'){
+      def mvnHome = tool name: 'MAVEN_HOME', type: 'maven'
+      emailext body: '''Regards
+Devops''', replyTo: 'mohanbabubmb147@gmail.com', subject: 'Pipeline Build ', to: 'mohanbabubmb147@gmail.com'
+   }
+   
+}
