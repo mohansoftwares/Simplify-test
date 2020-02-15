@@ -1,6 +1,6 @@
 1. What Is “staging Area” Or “index” In Git?
 Before completing the commits, it can be formatted and reviewed in an intermediate area known as ‘Staging Area’ or ‘Index’.
-
+new line
 2. What Is Git Stash?
 GIT stash takes the current state of the working directory and index and puts in on the stack for later and gives you back a clean working directory.  So in case if you are in the middle of something and need to jump over to the other job, and at the same time you don’t want to lose your current edits then you can use GIT stash.
 
