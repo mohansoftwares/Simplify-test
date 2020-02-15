@@ -1,0 +1,92 @@
+1. What Is “staging Area” Or “index” In Git?
+Before completing the commits, it can be formatted and reviewed in an intermediate area known as ‘Staging Area’ or ‘Index’.
+
+2. What Is Git Stash?
+GIT stash takes the current state of the working directory and index and puts in on the stack for later and gives you back a clean working directory.  So in case if you are in the middle of something and need to jump over to the other job, and at the same time you don’t want to lose your current edits then you can use GIT stash.
+
+3. What Is Git Stash Drop?
+When you are done with the stashed item or want to remove it from the list, run the git ‘stash drop’ command.  It will remove the last added stash item by default, and it can also remove a specific item if you include as an argument.
+
+4. How Will You Know In Git If A Branch Has Been Already Merged Into Master?
+Git branch merged lists the branches that have been merged into the current branch
+Git branch no merged lists the branches that have not been merged
+
+5. What Is The Function Of Git Clone?
+The git clone command creates a copy of an existing Git repository. To get the copy of a central repository, ‘cloning’  is the most common way used by programmers.
+
+6. What Is The Function Of ‘git Config’?
+The ‘git config’ command is a convenient way to set configuration options for your Git installation.  Behaviour of a repository, user info, preferences etc. can be defined through this command.
+
+7. What Does Commit Object Contain?
+a) A set of files, representing the state of a project at a given point of time
+b) Reference to parent commit objects
+c) An SHAI name, a 40 character string that uniquely identifies the commit object.
+
+8.  How Can You Create A Repository In Git?
+In Git, to create a repository, create a directory for the project if it does not exist, and then run command “git init”. By running this command .git directory will be created in the project directory, the directory does not need to be empty.
+
+9. What Is ‘head’ In Git And How Many Heads Can Be Created In A Repository?
+A ‘head’ is simply a reference to a commit object. In every repository, there is a default head referred as “Master”.  A repository can contain any number of heads.
+
+10. What Is The Purpose Of Branching In Git?
+The purpose of branching in GIT is that you can create your own branch and jump between those branches. It will allow you to go to your previous work keeping your recent work intact.
+
+11. What Is The Common Branching Pattern In Git?
+The common way of creating branch in GIT is to maintain one as “Main“ branch and create another branch to implement new features. This pattern is particularly useful when there are multiple developers working on a single project.
+
+12. How Can You Bring A New Feature In The Main Branch?
+To bring a new feature in the main branch, you can use a command “git merge” or “git pull command”.
+
+13. What Is A ‘conflict’ In Git?
+A ‘conflict’ arises when the commit that has to be merged has some change in one place, and the current commit also has a change at the same place. Git will not be able to predict which change should take precedence.
+
+14. How Can Conflict In Git Resolved?
+To resolve the conflict in git, edit the files to fix the conflicting changes and then add the resolved files by running “git add” after that to commit the repaired merge,  run “git commit”.  Git remembers that you are in the middle of a merger, so it sets the parents of the commit correctly.
+
+15. To Delete A Branch What Is The Command That Is Used?
+Once your development branch is merged into the main branch, you don’t need development branch.  To delete a branch use, the command “git branch –d [head]”.
+
+16. What Is Another Option For Merging In Git?
+“Rebasing” is an alternative to merging in git.
+
+17. What Is The Syntax For “rebasing” In Git?
+The syntax used for rebase is “git rebase [new-commit] “
+
+18. What Is The Difference Between ‘git Remote’ And ‘git Clone’?
+‘git remote add’  just creates an entry in your git config that specifies a name for a particular URL.  While, ‘git clone’ creates a new git repository by copying and existing one located at the URI.
+
+19. What Is Git Version Control?
+With the help of GIT version control, you can track the history of a collection of files and includes the functionality to revert the collection of files to another version.  Each version captures a snapshot of the file system at a certain point of time. A collection of files and their complete history are stored in a repository.
+
+20. What Is The Function Of ‘git Diff ’ In Git?
+‘git diff ’ shows the changes between commits, commit and working tree etc.
+
+21. What Is ‘git Status’ Is Used For?
+As ‘Git Status’ shows you the difference between the working directory and the index, it is helpful in understanding a git more comprehensively.
+
+22.  What Is The Difference Between The ‘git Diff ’and ‘git Status’?
+‘git diff’ is similar to ‘git status’, but it shows the differences between various commits and also between the working directory and index.
+
+23. What Is The Function Of ‘git Checkout’ In Git?
+A ‘git checkout’ command is used to update directories or specific files in your working tree with those from another branch without merging it in the whole branch.
+
+24. What Is The Function Of ‘git Rm’?
+To remove the file from the staging area and also off your disk ‘git rm’ is used.
+
+25. What Is The Function Of ‘git Stash Apply’?
+When you want to continue working where you have left your work, ‘git stash apply’ command is used to bring back the saved changes onto the working directory.
+
+26. What Is The Use Of ‘git Log’?
+To find specific commits in your project history- by author, date, content or history ‘git log’ is used.
+
+27. What Is ‘git Add’ Is Used For?
+‘git add’ adds file changes in your existing directory to your index.
+
+28. What Is The Function Of ‘git Reset’?
+The function of ‘Git Reset’ is to reset your index as well as the working directory to the state of your last commit.
+
+29.  What Is Git Is-tree?
+‘git Is-tree’ represents a tree object including the mode and the name of each item and the SHA-1 value of the blob or the tree.
+
+30. How Can You Fix A Broken Commit?
+To fix any broken commit, you will use the command “git commit—amend”. By running this command, you can fix the broken commit message in the editor.
